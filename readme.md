@@ -1,5 +1,8 @@
 # Public API for Ventures ![](https://img.shields.io/badge/api--docs-v1.0.0-green)
 
+### Order Creation Flow
+![](./docs/images/flow-order_creation.png)
+
 ### Contact Persons:
 
 | Name | Email |

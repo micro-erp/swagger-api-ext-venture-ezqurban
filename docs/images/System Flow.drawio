@@ -1,0 +1,68 @@
+<mxfile host="Electron" modified="2023-05-03T23:35:17.865Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="JopvPIGC7I4htljzgaWx" version="21.2.1" type="device">
+  <diagram name="Flow - Order Creation" id="EJiSfz2ife1BUmJcyj4k">
+    <mxGraphModel dx="796" dy="610" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-3" value="&amp;nbsp;1. Request Checkout Order&amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.748;entryY=0.007;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Jp5VkoZoyuojBYIds7uC-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="160" as="sourcePoint" />
+            <mxPoint x="329.20000000000005" y="233.1300000000001" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="70" y="140" />
+              <mxPoint x="421" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.529;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Jp5VkoZoyuojBYIds7uC-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="238" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="120" y="238" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-10" value="&amp;nbsp;3. Request Confirm Order&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Jp5VkoZoyuojBYIds7uC-9">
+          <mxGeometry x="0.1997" y="1" relative="1" as="geometry">
+            <mxPoint x="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-1" value="Client Application" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Rack.svg;" vertex="1" parent="1">
+          <mxGeometry x="38" y="164" width="68.2" height="138.26" as="geometry" />
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.041;entryY=0.217;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Jp5VkoZoyuojBYIds7uC-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="229.20000000000005" as="sourcePoint" />
+            <mxPoint x="114.99540000000002" y="232.0239200000001" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="194" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-8" value="&amp;nbsp;2. Response Order Checkout&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Jp5VkoZoyuojBYIds7uC-7">
+          <mxGeometry x="0.0181" y="1" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.982;entryY=0.904;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="279" as="sourcePoint" />
+            <mxPoint x="104.9724" y="278.98703999999987" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="310" y="279" />
+              <mxPoint x="310" y="279" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-12" value="&amp;nbsp;4. Response Confirm Order&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Jp5VkoZoyuojBYIds7uC-11">
+          <mxGeometry x="-0.095" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jp5VkoZoyuojBYIds7uC-4" value="MERP API" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Rack.svg;" vertex="1" parent="1">
+          <mxGeometry x="370" y="165" width="68.2" height="138.26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
