@@ -36,6 +36,7 @@ components:
               format: float
             currency:
               type: string
+              example: MYR
         media:
           type: object
           properties:
@@ -43,8 +44,10 @@ components:
               type: string
             type:
               type: string
+              example: image
             mime:
               type: string
+              example: image/png
         items:
           type: array
           items:
@@ -65,14 +68,14 @@ components:
     CheckoutItem:
       type: object
       required:
-        - productId
-        - productQuantity
+        - packageId
+        - packageQuantity
         - participantName
       properties:
-        productId:
+        packageId:
           type: integer
           format: int64
-        productQuantity:
+        packageQuantity:
           type: integer
           format: int32
         participantName:
@@ -142,7 +145,49 @@ components:
           $ref: '#/components/schemas/ShippingAddress'
         notes:
           type: string
-          
+    PaymentTransaction:
+      type: object
+      required:
+       - paidAmount
+       - currency
+       - paymentMethod
+       - referenceNumber
+      properties:
+        paidAmount:
+          type: number
+          format: float
+        currency:
+          type: string
+          example: MYR
+        paymentMethod:
+          type: string
+          enum: [BANK_TRANSFER, FPX, CREDIT_CARD, CASH, CHEQUE]
+        referenceNumber:
+          type: string
+        remarks:
+          type: string
+    Payment:
+      type: object
+      required:
+       - orderId
+       - totalAmount
+       - currency
+       - transactions
+      properties:
+        orderId:
+          type: string
+          description: format ${order.id}-${order.slugId}
+          example: 1-byq2lz
+        totalAmount:
+          type: number
+          format: float
+        currency:
+          type: string
+          example: MYR
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentTransaction'
 
 security:
   - apikey: []
@@ -155,7 +200,7 @@ paths:
       tags:
         - Packages
       summary: Get Available Packages
-      description: Get list of available packages
+      description: Get list of available packages.
       responses:
         '200':
           description: OK
@@ -175,6 +220,7 @@ paths:
       tags:
         - Orders
       summary: Checkout Order
+      description: Create an order and marked status as `pending`.
       requestBody:
         required: true
         content: 
@@ -191,13 +237,16 @@ paths:
       tags:
         - Orders
       summary: Order Payment Received
+      description: Create order's payment and marked status as `confirmed`. Confirmed order is where the payment is recevied and confirmed.
       requestBody:
         content: {}
       responses:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
   /orders:
     get:
       tags:

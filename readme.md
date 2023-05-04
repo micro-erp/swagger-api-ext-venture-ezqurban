@@ -1,14 +1,14 @@
 # Public API for Ventures ![](https://img.shields.io/badge/api--docs-v1.0.0-green)
 
-### Order Creation Flow
-![](./docs/images/flow-order_creation.png)
-
 ### Contact Persons:
 
 | Name | Email |
 | --- | --- |
 | Muhammad Hasni | muhammadhsn.hsn@gmail.com |
 | Helmi Ruza | helmiruza@gmail.com |
+
+### Order Creation Flow
+![](./docs/images/flow-order_creation.png)
 
 ### API Endpoints Document
 Visit our [Swagger](https://micro-erp.github.io/swagger-api-ext-venture-ezqurban/) for our API Endpoints Document
@@ -19,10 +19,10 @@ Webhook is an callback event that will be triggered when a certain action has be
 List of currently available events:
 ```javascript
 [ 
-  orders.created, 
-  orders.confirmed, 
-  orders.executed, 
-  orders.completed, 
-  orders.cancelled 
+  order.created, 
+  order.confirmed, 
+  order.executed, 
+  order.completed, 
+  order.cancelled 
 ]
 ```
