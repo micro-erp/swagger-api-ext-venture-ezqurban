@@ -239,14 +239,16 @@ paths:
       summary: Order Payment Received
       description: Create order's payment and marked status as `confirmed`. Confirmed order is where the payment is recevied and confirmed.
       requestBody:
-        content: {}
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
       responses:
         '200':
           description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Payment'
+          content: 
+            application/json: {}
   /orders:
     get:
       tags:
