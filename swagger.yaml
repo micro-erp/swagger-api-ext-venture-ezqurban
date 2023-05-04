@@ -332,7 +332,7 @@ paths:
               $ref: '#/components/schemas/Checkout'
       responses:
         '200':
-          description: Successful response
+          description: OK
           headers:
             Content-Type:
               schema:
@@ -356,7 +356,7 @@ paths:
               $ref: '#/components/schemas/Payment'
       responses:
         '200':
-          description: Successful response
+          description: OK
           headers:
             Content-Type:
               schema:
@@ -379,7 +379,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Successful response
+          description: OK
           headers:
             Content-Type:
               schema:
@@ -404,7 +404,7 @@ paths:
           required: true
       responses:
         '200':
-          description: Successful response
+          description: OK
           headers:
             Content-Type:
               schema:
@@ -434,7 +434,7 @@ paths:
           required: true
       responses:
         '200':
-          description: Successful response
+          description: OK
           headers:
             Content-Type:
               schema:
