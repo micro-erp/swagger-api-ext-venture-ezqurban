@@ -13,7 +13,7 @@
 ### API Endpoints Document
 Visit our [Swagger](https://micro-erp.github.io/swagger-api-ext-venture-ezqurban/) for our API Endpoints Document
 
-### API Webhooks
+<!-- ### API Webhooks
 Webhook is an callback event that will be triggered when a certain action has been made. For instance, when the order is created, our system will send a callback event to target url/endpoint. It is a `POST` request through `HTTP` protocol.
 
 List of currently available events:
@@ -25,4 +25,4 @@ List of currently available events:
   order.completed, 
   order.cancelled 
 ]
-```
+``` -->
