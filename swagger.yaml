@@ -4,13 +4,17 @@ info:
   description: Public API for EZQurban Clients
   version: 1.0.0
 servers:
-  - url: https://api-ventures.staging.ezqurban.org/v1.0
+  - url: https://ventures.ezqurban-staging-api.microerp.io/v1.0
 components:
   securitySchemes:
-    apikey:
+    apiKey:
       type: apiKey
       in: header
       name: x-api-key
+    merchantId:
+      type: apiKey
+      in: header
+      name: x-merchant-id
   schemas:
     Category:
       type: object
@@ -268,7 +272,8 @@ components:
           $ref: '#/components/schemas/Payment'
 
 security:
-  - apikey: []
+  - apiKey: []
+  - merchantId: []
 tags:
   - name: Packages
   - name: Orders
