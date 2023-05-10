@@ -335,6 +335,30 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Checkout'
+            example:
+              items:
+                - packageId: 14
+                  packageQuantity: 1
+                  participantName: John Doe
+                - packageId: 14
+                  packageQuantity: 3
+                  participantName: John Doe Jr.
+              buyer:
+                name: John Doe
+                email: john.doe@example.com
+                phoneNumber: '+601122334411'
+                identityNumber: C7119685
+              shippingAddress:
+                name: John Doe
+                email: john.doe@example.com
+                phoneNumber: '+601122334411'
+                addressLine1: Address Line 1
+                addressLine2: Address Line 2
+                postcode: '12312'
+                city: Kuala Lumpur
+                state: W. P. Kuala Lumpur
+                country: Malaysia
+              notes: This is just a note
       responses:
         '200':
           description: OK
