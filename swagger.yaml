@@ -152,7 +152,7 @@ components:
             $ref: '#/components/schemas/CheckoutItem'
         buyer:
           $ref: '#/components/schemas/Buyer'
-        shippingAddres:
+        ShippingAddress:
           $ref: '#/components/schemas/ShippingAddress'
         notes:
           type: string
