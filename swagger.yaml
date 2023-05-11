@@ -417,9 +417,37 @@ paths:
           content:
             application/json: 
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MainOrder'
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MainOrder'
+                  prevPage:
+                    type: integer
+                    format: int32
+                    example: 1
+                  nextPage:
+                    type: integer
+                    format: int32
+                    example: 3
+                  currentPage:
+                    type: integer
+                    format: int32
+                    example: 2
+                  totalPage:
+                    type: integer
+                    format: int32
+                    example: 5
+                  limit:
+                    type: integer
+                    format: int32
+                    example: 30
+                  totalItems:
+                    type: integer
+                    format: int32
+                    example: 150
+                  
   /orders/{id}:
     get:
       tags:
