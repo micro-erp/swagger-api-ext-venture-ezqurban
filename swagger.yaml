@@ -269,7 +269,24 @@ components:
           items:
             $ref: '#/components/schemas/Order'
         payment:
-          $ref: '#/components/schemas/Payment'
+          type: object
+            slugId:
+              type: string
+              format: ${order.id}-${order.slugId}
+              example: 1-byq2lz
+            totalAmount:
+              type: number
+              format: float
+            totalPaid:
+              type: number
+              format: float
+            currency:
+              type: string
+              example: MYR
+            transactions:
+              type: array
+              items:
+                $ref: '#/components/schemas/PaymentTransaction'
 
 security:
   - apiKey: []
@@ -448,16 +465,17 @@ paths:
                     format: int32
                     example: 150
                   
-  /orders/{id}:
+  /orders/{slugId}:
     get:
       tags:
         - Orders
       summary: Get Order
       parameters:
-        - name: id
+        - name: slugId
           in: path
           schema:
             type: string
+            example: 20ijx4
           required: true
       responses:
         '200':
@@ -471,19 +489,19 @@ paths:
             application/json: 
               schema:
                 $ref: '#/components/schemas/MainOrder'
-  /orders/{id}/items/{item-id}:
+  /orders/{slugId}/items/{item-slugId}:
     get:
       tags:
         - Orders
       summary: Get Order Item
       parameters:
-        - name: id
+        - name: slugId
           in: path
           schema:
             type: string
           example: byq2lz
           required: true
-        - name: item-id
+        - name: item-SlugId
           in: path
           schema:
             type: string
