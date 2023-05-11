@@ -177,7 +177,7 @@ components:
       type: object
       required:
        - orderId
-       - totalAmount
+       - totalPaidAmount
        - currency
        - transactions
       properties:
@@ -185,7 +185,7 @@ components:
           type: string
           format: ${order.id}-${order.slugId}
           example: 1-byq2lz
-        totalAmount:
+        totalPaidAmount:
           type: number
           format: float
         currency:
@@ -341,6 +341,13 @@ paths:
         - Orders
       summary: Checkout Order
       description: Create an order and marked status as `pending`.
+      parameters:
+        - in: header
+          name: x-signature
+          schema:
+            type: string
+          required: true
+          description: Raw request body HMAC 256 with Secret Key
       requestBody:
         required: true
         content: 
@@ -388,7 +395,14 @@ paths:
       tags:
         - Orders
       summary: Order Payment Received
-      description: Create order's payment and marked status as `confirmed`. Confirmed order is where the payment is recevied and confirmed.
+      description: Create order's payment and marked status as `payment_received`. `payment_received` order is where the payment is recevied.
+      parameters:
+        - in: header
+          name: x-signature
+          schema:
+            type: string
+          required: true
+          description: Raw request body HMAC 256 with Secret Key
       requestBody:
         required: true
         content: 
