@@ -33,8 +33,6 @@ components:
           type: string
         name:
           type: string
-        sku:
-          type: string
         active:
           type: boolean
         description:
@@ -68,8 +66,6 @@ components:
                 type: integer
                 format: int64
               slugId:
-                type: string
-              sku:
                 type: string
               name:
                 type: string
@@ -204,8 +200,6 @@ components:
       properties:
         status:
           type: string
-        description:
-          type: string
         createdAt:
           type: string
           format: date-time
@@ -270,6 +264,7 @@ components:
             $ref: '#/components/schemas/Order'
         payment:
           type: object
+          properties:
             slugId:
               type: string
               format: ${order.id}-${order.slugId}
@@ -501,7 +496,7 @@ paths:
             type: string
           example: byq2lz
           required: true
-        - name: item-SlugId
+        - name: item-slugId
           in: path
           schema:
             type: string
@@ -532,8 +527,6 @@ paths:
                         type: string
                       name:
                         type: string
-                      sku:
-                        type: string
                       quantity:
                         type: integer
                         format: int32
@@ -543,6 +536,8 @@ paths:
                   additionalInfo:
                     type: object
                     properties:
+                      categoryIds:
+                        type: string
                       executionCountry:
                         type: string
                       executionLocation:
