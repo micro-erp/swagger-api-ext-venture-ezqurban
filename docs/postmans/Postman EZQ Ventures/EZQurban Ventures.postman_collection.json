@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "ce74ca18-dd55-405b-8672-d8a206f00645",
+		"name": "EZQurban Ventures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14581988",
+		"_collection_link": "https://interstellar-robot-256947.postman.co/workspace/EZQurban~6434c49a-21fc-44d8-b6be-51cd03330c91/collection/14581988-ce74ca18-dd55-405b-8672-d8a206f00645?action=share&creator=14581988&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Packages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/packages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"packages"
+							],
+							"query": [
+								{
+									"key": "categorySlugId",
+									"value": "korban",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Order Checkout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const message = pm.request.body.raw;",
+									"const secretKey = pm.environment.get('secret-key');",
+									"const hashed = CryptoJS.HmacSHA256(message, secretKey).toString();",
+									"pm.request.headers.add(`x-signature: ${hashed}`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\": [\n    {\n      \"packageId\": 14,\n      \"packageQuantity\": 1,\n      \"participantName\": \"John Doe Jr\"\n    },\n    {\n      \"packageId\": 15,\n      \"packageQuantity\": 1,\n      \"participantName\": \"John Doe Sr\"\n    }\n  ],\n  \"buyer\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john@doe.me\",\n    \"phoneNumber\": \"+601234567\",\n    \"identityNumber\": \"112233445566\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"John Example\",\n    \"email\": \"john@doe.me\",\n    \"phoneNumber\": \"+601234567\",\n    \"addressLine1\": \"KL Citizen\",\n    \"addressLine2\": \"Bukit Bintang\",\n    \"postcode\": \"58400\",\n    \"city\": \"Kuala Lumpur\",\n    \"state\": \"W. P. Kuala Lumpur\",\n    \"country\": \"Malaysia\"\n  },\n  \"notes\": \"This is just a note\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/orders/checkout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Payment Received",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const message = pm.request.body.raw;",
+									"const secretKey = pm.environment.get('secret-key');",
+									"const hashed = CryptoJS.HmacSHA256(message, secretKey).toString();",
+									"pm.request.headers.add(`x-signature: ${hashed}`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderSlugId\": \"{{order-id}}\",\n  \"paidAmount\": 3040,\n  \"paidAt\": \"2023-05-12T14:53:54Z\",\n  \"currency\": \"MYR\",\n  \"paymentMethod\": \"FPX\",\n  \"referenceNumber\": \"FPX-3040\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/orders/confirmed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"confirmed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders?identityNumber={{identity-number}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "identityNumber",
+									"value": "{{identity-number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders/{{order-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"{{order-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders/{{order-id}}/items/{{order-item-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"{{order-id}}",
+								"items",
+								"{{order-item-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const apiKey = pm.environment.get('app-key');",
+					"pm.request.headers.add(`x-api-key: ${apiKey}`);",
+					"",
+					"const merchantId = pm.environment.get('merchant-id');",
+					"pm.request.headers.add(`x-merchant-id: ${merchantId}`);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
