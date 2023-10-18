@@ -298,6 +298,29 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/PaymentTransaction'
+    Webhook: 
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 0472e03b-2f5c-44a1-bbad-fc463a81c14f
+        name:
+          type: string
+        webhookUrl:
+          type: string
+          format: uri
+          example: https://example.com/hooks
+        events:
+          type: array
+          items: 
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
 
 security:
   - apiKey: []
@@ -588,3 +611,51 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/OrderHistory'
+
+  /webhooks:
+    get:
+      tags:
+        - Webhooks
+      summary: Get Registered Webhooks
+      description: Get list of registered webhooks.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Webhook'
+                  prevPage:
+                    type: integer
+                    format: int32
+                    example: 1
+                  nextPage:
+                    type: integer
+                    format: int32
+                    example: 3
+                  currentPage:
+                    type: integer
+                    format: int32
+                    example: 2
+                  totalPage:
+                    type: integer
+                    format: int32
+                    example: 5
+                  limit:
+                    type: integer
+                    format: int32
+                    example: 30
+                  totalItems:
+                    type: integer
+                    format: int32
+                    example: 150
