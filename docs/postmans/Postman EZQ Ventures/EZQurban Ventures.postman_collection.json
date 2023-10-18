@@ -208,7 +208,29 @@
 					"response": []
 				}
 			]
-		}
+		},
+    {
+      "name": "Webhooks",
+      "item": [
+				{
+					"name": "Webhooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/webhooks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				}
+      ]
+    }
 	],
 	"event": [
 		{
