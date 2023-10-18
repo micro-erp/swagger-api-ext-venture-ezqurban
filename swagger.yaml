@@ -158,6 +158,9 @@ components:
           $ref: '#/components/schemas/ShippingAddress'
         notes:
           type: string
+        referenceId:
+          type: string
+          description: reference id for external client.
     PaymentTransaction:
       type: object
       required:
@@ -259,6 +262,9 @@ components:
           format: date-time
         notes:
           type: string
+        referenceId:
+          type: string
+          example: 0472e03b-2f5c-44a1-bbad-fc463a81c14f
         buyer:
           type: object
           properties:
@@ -388,6 +394,7 @@ paths:
                 state: W. P. Kuala Lumpur
                 country: Malaysia
               notes: This is just a note
+              referenceId: 0472e03b-2f5c-44a1-bbad-fc463a81c14f
       responses:
         '200':
           description: OK
@@ -439,7 +446,10 @@ paths:
       parameters:
         - name: identityNumber
           in: query
-          required: true
+          schema:
+            type: string
+        - name: referenceId
+          in: query
           schema:
             type: string
       responses:
