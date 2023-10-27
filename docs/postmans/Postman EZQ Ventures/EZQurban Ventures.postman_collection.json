@@ -213,7 +213,7 @@
       "name": "Webhooks",
       "item": [
 				{
-					"name": "Webhooks",
+					"name": "Get Webhooks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -224,6 +224,33 @@
 							],
 							"path": [
 								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Webhook by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Example Name\",\n    \"webhookUrl\": \"https://example.com/callbacks\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/webhooks/{{webhook-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"webhooks",
+								"{{webhook-id}}"
 							]
 						}
 					},
