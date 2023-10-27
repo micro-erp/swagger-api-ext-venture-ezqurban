@@ -516,7 +516,6 @@ paths:
                     type: integer
                     format: int32
                     example: 150
-                  
   /orders/{slugId}:
     get:
       tags:
@@ -659,3 +658,33 @@ paths:
                     type: integer
                     format: int32
                     example: 150
+    patch:
+      tags:
+        - Webhooks
+      summary: Update Webhook by ID
+      description: Update webhook detail by ID partially.
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                webhookUrl:
+                  type: string
+                  example: https://example.com/hooks
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content: 
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Webhook'
+                
