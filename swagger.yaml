@@ -727,6 +727,10 @@ paths:
               properties:
                 name:
                   type: string
+                events:
+                  type: array
+                  items:
+                    type: string
                 webhookUrl:
                   type: string
                   example: https://example.com/hooks

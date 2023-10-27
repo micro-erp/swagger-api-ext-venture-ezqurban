@@ -236,7 +236,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Example Name\",\n    \"webhookUrl\": \"https://example.com/callbacks\"\n}",
+							"raw": "{\n    \"name\": \"Example Name\",\n    \"webhookUrl\": \"https://example.com/callbacks\",\n    \"events\": [\n        \"string\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
