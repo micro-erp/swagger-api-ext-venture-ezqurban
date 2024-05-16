@@ -660,6 +660,8 @@ paths:
                         type: string
                       participantName:
                         type: string 
+                      filesLink:
+                        type: string 
                   shippingAddress:
                     $ref: '#/components/schemas/ShippingAddress'
                   histories:
